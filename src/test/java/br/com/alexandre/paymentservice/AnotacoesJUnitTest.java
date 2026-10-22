@@ -1,46 +1,33 @@
 package br.com.alexandre.paymentservice;
 
 import org.junit.jupiter.api.*;
-
+//Realizando o teste por ordem alfabetica usamos @TestMethodOrder(MethodOrderer.MethodName.class)
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+//Realizando o teste por Ordem com @TestMethodOrder(MethodOrderer.OrderAnnotation.class), ou seja, selecionamos a order que queremos a execução do teste, colocando em cada teste o @Order()
+//com o numero da ordem de execução dos testes
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//Executando o teste por ordem alfabetica do DisplayName, ou seja, segue a ordem alfabetica da primeira palavra do texto em cada teste
+@TestMethodOrder(MethodOrderer.DisplayName.class)
 class AnotacoesJUnitTest {
 
-    //@BeforeAll e @AfterAll são sempre metodos staticos
-    @BeforeAll
-    static void preCondicaoPorTodosOsTestes() {
-        // usado para inicializações de recursos. Ex: kafka, banco, docker, etc...
-        System.out.println("Executou a pre-condição antes de todos os testes");
-    }
-
-    @AfterAll
-    static void postCondicaoPorTodosOsTestes() {
-        // usado para finalização de recursos. Ex: kafka, banco, docker, etc...
-        System.out.println("Executou a pos-condição depois de todos os testes");
-    }
-
-    @BeforeEach
-    void preCondicaoPorTeste() {
-        // usado para inicialização de recursos por teste. Ex: inserir algum dado especifico no banco
-        System.out.println("Executou a precondição por teste..");
-    }
-
-    @AfterEach
-    void posCondicaoPorTeste() {
-        // usado para remover alguns recursos especificos por teste. Ex: remover todos os dados do banco
-        System.out.println("Executou a pos-condição por teste....");
-    }
-
     @Test
+    @DisplayName("Teste do metodo a")
+    //@Order(3)
     void aMeuTeste() {
         System.out.println("Executou o teste A");
     }
 
     @Test
+    @DisplayName("Verifica XYZ")
+    //@Order(1)
     void bMeuTeste() {
         System.out.println("Executou o teste B");
     }
 
 
     @Test
+    @DisplayName("Garante que YZZ")
+    //@Order(2)
     void cMeuTeste() {
         System.out.println("Executou o teste C");
     }
